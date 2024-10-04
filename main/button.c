@@ -30,7 +30,7 @@ void buttonA(void *pvParameters)
 {
 	ESP_LOGI(pcTaskGetName(0), "Start");
 	MOTION6_t motion6;
-	motion6.sender = SENDER_BUTTON;
+	motion6.sender = SENDER_BUTTON_A;
 	
 	// set the GPIO as a input
 	gpio_reset_pin(GPIO_INPUT_A);
@@ -55,18 +55,18 @@ void buttonB(void *pvParameters)
 {
 	ESP_LOGI(pcTaskGetName(0), "Start");
 	MOTION6_t motion6;
-	motion6.sender = SENDER_BUTTON;
+	motion6.sender = SENDER_BUTTON_B;
 
 	// set the GPIO as a input
 	gpio_reset_pin(GPIO_INPUT_B);
 	gpio_set_direction(GPIO_INPUT_B, GPIO_MODE_DEF_INPUT);
 
 	while(1) {
-		int level = gpio_get_level(GPIO_INPUT_A);
+		int level = gpio_get_level(GPIO_INPUT_B);
 		if (level == 0) {
 			ESP_LOGI(pcTaskGetName(0), "Push Button");
 			while(1) {
-				level = gpio_get_level(GPIO_INPUT_A);
+				level = gpio_get_level(GPIO_INPUT_B);
 				if (level == 1) break;
 				vTaskDelay(1);
 			}

@@ -37,6 +37,9 @@ void app_main(void)
 	xTaskCreate(&buttonA, "BUTTON", 1024*2, NULL, 5, NULL);
 	vTaskDelay(100);
 
+	xTaskCreate(&buttonB, "BUTTON", 1024*2, NULL, 5, NULL);
+	vTaskDelay(100);
+
 	// Start imu task
 	xTaskCreate(&mpu6050, "IMU", 1024*8, NULL, 5, NULL);
 	vTaskDelay(100);

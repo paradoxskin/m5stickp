@@ -1,4 +1,4 @@
-typedef enum {SENDER_IMU, SENDER_BUTTON} SENDER;
+typedef enum {SENDER_IMU, SENDER_BUTTON_A, SENDER_BUTTON_B} SENDER;
 
 typedef struct {
 	float quatx;
